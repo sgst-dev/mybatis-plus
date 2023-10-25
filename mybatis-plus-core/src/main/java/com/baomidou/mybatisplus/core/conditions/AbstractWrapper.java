@@ -549,7 +549,7 @@ public abstract class AbstractWrapper<T, R, Children extends AbstractWrapper<T, 
      */
     protected ISqlSegment inExpression(Collection<?> value) {
         if (CollectionUtils.isEmpty(value)) {
-            return () -> "()";
+            return () -> "(null)";
         }
         return () -> value.stream().map(i -> formatParam(null, i))
             .collect(joining(StringPool.COMMA, StringPool.LEFT_BRACKET, StringPool.RIGHT_BRACKET));
